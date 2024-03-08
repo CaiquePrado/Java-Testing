@@ -1,0 +1,20 @@
+package br.com.advancedconceptsmockito.mockito.services;
+
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+import br.com.advancedconceptsmockito.mockito.models.Order;
+
+public class OrderService {
+
+    public Order createOrder(String productName, Long amount, UUID orderID) {
+        
+        Order order = new Order();
+        
+        order.setId(orderID == null ? UUID.randomUUID() : orderID);
+        order.setCreationDate(LocalDateTime.now());
+        order.setAmount(amount);
+        order.setProductName(productName);
+        return order;
+    }
+}
